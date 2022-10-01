@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+
+    <div id="univers">
+        <img src="https://www.freepnglogos.com/uploads/star-wars-logo-png-10.png" alt="">
+        <input oninput="debounceFunction(main,300)" type="text" id="searchData" placeholder="Search Charecters">        
+    </div>
+
+    <div id="requiredData"></div>
+
+    
+</body>
+</html>
+
+<script>
+
+    let requiredData = document.getElementById("requiredData")
+    let id;
+
+    async function urlData(u){
+   
+         let url =`https://swapi.dev/api/people/?search=${u}`
+         let res = await fetch(url);
+         let data = await res.json();
+    
+         if(data.count == 82){
+             return false
+         }
+      
+        return data;
+
+    }
+
+    function debounceFunction(main,delay){
+    
+         if(id){
+             clearTimeout(id)
+         }
+
+         id = setTimeout(function(){
+             main()
+         },delay)
+
+
+    }
+ 
+    async function main(){
+
+        
+        let searchData = document.getElementById("searchData").value
+        
+        let geturlData = await urlData(searchData);
+
+        let filteredData = geturlData.results
+    
+    console.log(filteredData)
+        if(geturlData.count == 0){
+            requiredData.innerHTML="No results found. Try again..."
+        }
+
+       
+        else{
+            appendData(filteredData)
+
+        }
+
+
+    }
+
+
+    function appendData(data){
+        requiredData.innerHTML= null;
+
+        
+
+        data.forEach(function(el) {
+            
+            let box = document.createElement("div")
+            let one = document.createElement("div")
+
+            let name = document.createElement("div")
+            name.innerText = el.name;
+
+            let yob = document.createElement("div")
+            yob.innerText = el.birth_year;
+
+            let gender = document.createElement("div")
+            gender.innerText = el.gender;
+ 
+            one.append(name,yob)
+            box.append(one,gender)
+            requiredData.append(box)
+
+
+
+
+        });
+
+
+    }
+
+</script>

@@ -1,0 +1,94 @@
+*{
+    margin:auto;
+    padding: auto;   
+    color: white;   
+
+}
+body{
+    background-color: #110b0b;
+}
+
+#univers>img{
+    width: 250px;
+    margin-bottom: 35px
+}
+
+#univers{
+     display: flex; 
+    flex-direction: column; 
+    width: 100%;
+    margin: auto;
+    margin-top: 8%;
+}
+
+#searchData{
+    width:47%;
+    height:42px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #5e5151;
+    font-size: 19px;
+    padding-left: 15px;
+    border: none;
+}
+
+#requiredData{
+    margin-top: 3px;
+    width: 47.9%;
+    /* border: 1px solid rgb(250, 243, 243); */
+    height: 250px;
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+
+
+}
+
+#requiredData::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color:  rgb(210, 221, 153);
+}
+  
+#requiredData::-webkit-scrollbar-thumb {
+    background: rgb(122, 112, 210);
+  }
+
+#requiredData>div{
+ /* border: 1px solid rgb(215, 214, 226); */
+ background-color: #434141;
+ width: 100%;
+ border-radius: 7px;
+ margin-top: 2px;
+ height: 50px;
+ padding-top: 5px;
+  display: flex; 
+ /* border: 1px solid rgb(219, 126, 126); */
+ flex-direction: row;
+ justify-content: space-between;
+ box-shadow: 0 0 5px 2px blue;
+ margin-top: 2px;
+
+}
+#requiredData>div>div{
+width: 100%;
+}
+#requiredData>div>div:first-child{
+   margin-left: 10px;
+   height: 40px;
+    }
+
+    #requiredData>div>div:first-child>div:last-child{
+     font-size: 13px;  
+  
+    }
+
+
+    #requiredData>div>div:last-child{
+        margin-right: 10px;
+        display: flex;
+        justify-content: flex-end;
+        height:40px;
+         }
+
+
